@@ -546,7 +546,7 @@ Macros.add("savetofiledirect", "Instant", function (_, n, s) {
   }
 }, [String, String]);</script><tw-tag name="header" color="blue"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="nobr" color="yellow"></tw-tag><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="黑暗" color="purple"></tw-tag><tw-tag name="手电筒链接" color="blue"></tw-tag><tw-passagedata pid="1" name="马桶-解密" tags="" position="600,300" size="100,100">【这里有一个需要解密才能出现的马桶，但我还没想好解密文案】
 
-(css:&quot;color:red;&quot;)[(link:&quot;这是一个需要解密才会出现的马桶&quot;)[(set:$toilet to it + 1)(goto:&quot;马桶-舞会&quot;)]]
+(css:&quot;color:red;&quot;)[(link:&quot;这是一个需要解密才会出现的马桶&quot;)[(set:$toilet to it + 1)(display: &quot;随机跳转&quot;)]]
 
 </tw-passagedata><tw-passagedata pid="2" name="马桶-舞会" tags="" position="500,300" size="100,100">|1&gt;[&#39;&#39;你误入了马桶的假面舞会。
 这里有很多很多很多进行了伪装的马桶，但只有一个马桶拥有传送功能，如果找错了马桶，可恶的脏马桶会污染你的计数，给你本就不多的容错率雪上加霜。
@@ -623,7 +623,7 @@ Macros.add("savetofiledirect", "Instant", function (_, n, s) {
 (else-if:(passage:)&#39;s name is &quot;马桶-病娇&quot;)[(set:$toiletSHU to 1)]
 
 &lt;!--顶部栏显示与隐藏判定--&gt;
-(if:(passage:)&#39;s name is &quot;游戏失败&quot; or &quot;游戏胜利&quot; or &quot;封面&quot; or &quot;剧情导入&quot; or &quot;游戏成就&quot; or &quot;被病娇马桶抓住&quot;)[
+(if:(passage:)&#39;s name is &quot;游戏失败&quot; or &quot;游戏胜利&quot; or &quot;封面&quot; or &quot;剧情导入&quot; or &quot;游戏成就&quot; or &quot;被病娇抓住&quot;)[
 (set:$toplan to false)]
 (else:)[(set:$toplan to true)]
 
@@ -703,6 +703,10 @@ Macros.add("savetofiledirect", "Instant", function (_, n, s) {
 
 ]]</tw-passagedata><tw-passagedata pid="9" name="更新笔记" tags="" position="0,200" size="100,100">(link:&quot;返回&quot;)[(goto:&quot;封面&quot;)]
 
+20260630
+1.忘了改了些什么，总之改了些乱七八糟的东西，文案一点没写，死线过去……忍不住想继续摆烂
+
+
 20260628
 1.新增部分文案
 2.照抄了(text-style:&quot;underline&quot;)+(color:black)[森诺]的提示窗口代码
@@ -771,9 +775,9 @@ Macros.add("savetofiledirect", "Instant", function (_, n, s) {
 &lt;hr&gt;
 (colour:red)[(link-rerun:&quot;游玩须知&quot;)[(show:?1)(set:_a to 1)(rerun:?2)]]&lt;br&gt;
 |1&gt;[
-(align:&quot;&lt;==&quot;)[1.本游戏为(colour:red)[抽象猎奇]小游戏，存在大量屎尿屁及其他诡异文案，猎奇程度取决于当时作者写文案时的承受能力上限及精神状况，游玩须谨慎&lt;br&gt;
+(align:&quot;&lt;=&quot;)[1.本游戏为(colour:red)[抽象猎奇]小游戏，存在大量屎尿屁及其他诡异文案，猎奇程度取决于当时作者写文案时的承受能力上限及精神状况，游玩须谨慎&lt;br&gt;
 2.制作使用的是twine哈洛模式，特别鸣谢(text-style:&quot;underline&quot;)+(color:black)[合罗柠檬茶、爬来爬去的爬修女、森诺、夏天的咸鱼]（按网名首字母顺序排列），以及(text-style:&quot;underline&quot;)+(color:black)[哈洛学院全体同学]，没有你们就没有马桶的今天，马桶爱你们！&lt;br&gt;
-3.本游戏目前尚处于(color:black)[开发期]，存在暂未发现的bug及未完成的内容，如有反馈可以联系作者&gt;&lt;（小红书：5447227536）]
+3.本游戏目前尚处于(color:black)[开发期]，存在暂未发现的bug及未完成的内容，如有反馈可以联系作者&lt;br&gt;（(color:black)[潇潇鸦]/小红书：5447227536）]
 
 (link-rerun:&quot;确认&quot;)[(hide:?1)(set:_a to true)(rerun:?2)]]
 &lt;br&gt;
@@ -859,35 +863,11 @@ document.addEventListener(&#39;keydown&#39;, function(e) {
 你只能看清一米内的物体，一米外就人桶不分。
 {(set:$card_name to &#39;一米之外，人桶不分&#39;) (display: &quot;成就弹窗&quot;)
 
-(text-colour:#84b5f4)+(text-size:0.5)
-[(link-rerun:&quot;马桶&quot;)
-	[|toilet1&gt;[(float-box:&quot;=x=&quot;,&quot;=y=====&quot;)+(css:&quot;width:10em;height:8em;background-color:#EAEAEA;color:black;border-radius:5px;border: 1px solid #333;padding:0.5em;line-height: 1.25em;font-size:1.5em;&quot;)
-			[热情的马桶说：“我会带你去个热闹的地方！”&lt;br&gt;
-            (align:&quot;=&gt;&lt;=&quot;)
-				[(color:#84b5f4)[(link:&quot;同意&quot;)[(set:$toilet to it + 1)(goto:&quot;马桶-舞会&quot;)]]
-                &lt;br&gt;
-                (color:red)[(link:&quot;拒绝&quot;)[(hide:?toilet1)]]
-				]
-			]&lt;!--box样式end--&gt;
-		]&lt;!--toilet区域end--&gt;
-	]
-]
+(display:&quot;浴室马桶1&quot;)
 &lt;br&gt;
 (color:transparent)[空白空白空白空白空白]
-
-(text-colour:#84b5f4)+(text-size:0.5)
-[(link-rerun:&quot;马桶&quot;)
-	[|toilet2&gt;[(float-box:&quot;=x=&quot;,&quot;=y=====&quot;)+(css:&quot;width:10em;height:8em;background-color:#EAEAEA;color:black;border-radius:5px;border: 1px solid #333;padding:0.5em;line-height: 1.25em;font-size:1.5em;&quot;)
-			[迷糊的马桶说：“什么？我也不知道我会带你去哪里……”&lt;br&gt;
-            (align:&quot;=&gt;&lt;=&quot;)
-				[(color:#84b5f4)[(link:&quot;同意&quot;)[(set:$toilet to it + 1)(display: &quot;随机跳转&quot;)]]
-                &lt;br&gt;
-                (color:red)[(link:&quot;拒绝&quot;)[(hide:?toilet2)]]
-				]
-			]&lt;!--box样式end--&gt;
-		]&lt;!--toilet区域end--&gt;
-	]
-]}</tw-passagedata><tw-passagedata pid="14" name="马桶-问答" tags="" position="800,300" size="100,100">“你好，人类。”顶着眼镜的马桶冲你礼貌地开合了一下桶盖，它彬彬有礼道，“我知道你在寻找我，也知道你接受了马桶之神的考验，但我是个文明桶，不屑于整花活。”
+(display:&quot;浴室马桶2&quot;)
+}</tw-passagedata><tw-passagedata pid="14" name="马桶-问答" tags="" position="800,300" size="100,100">“你好，人类。”顶着眼镜的马桶冲你礼貌地开合了一下桶盖，它彬彬有礼道，“我知道你在寻找我，也知道你接受了马桶之神的考验，但我是个文明桶，不屑于整花活。”
 你看到它用桶盖抬了下快要滑落的眼镜，继续说道：“我会问你三个问题，只要你全部回答正确，我就实现你的心愿，送你回到你想回去的地方。但如果你回答错误，我会立即把你送给我的同僚们，并且你不会再见到我，因为我不会给蠢货第二次机会。”
 “你要尝试挑战吗？”眼镜马桶询问。{
 (set:_ture to 0)(set:_fu to 0)}
@@ -1026,7 +1006,20 @@ document.addEventListener(&#39;keydown&#39;, function(e) {
 (set:$toilet_F to 0)&lt;!--重置已找到的假马桶数--&gt;
 
 }</tw-passagedata><tw-passagedata pid="30" name="剧情导入弹窗" tags="" position="500,800" size="100,100">{
-	[|box&gt;[(float-box:&quot;=x=&quot;,&quot;=y=====&quot;)+(css:&quot;width:10em;height:8em;background-color:#EAEAEA;color:black;border-radius:5px;border: 1px solid #333;padding:0.5em;line-height: 1.25em;font-size:1em;&quot;)
+	[|box&gt;[(float-box:&quot;x&quot;,&quot;=y===&quot;)+(css:&quot;width:70vw;
+             max-width:20em;
+             height:30vh;
+             background-color:#EAEAEA;
+             color:black;
+             border-radius:5px;
+             border: 1px solid #333;
+             padding:0.5em;
+             line-height: 1.25em;
+             font-size:1em;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+            z-index: 1000;&quot;)
 			[你宁愿吃屎也不愿意回去做社畜？？？&lt;br&gt;
 (align:&quot;=&gt;&lt;=&quot;)[
 (color:#84b5f4)[(link:&quot;没错！&quot;)[
@@ -1122,7 +1115,51 @@ document.addEventListener(&#39;keydown&#39;, function(e) {
 |Q5a1&gt;[(link:&quot;&lt;br&gt;是聪明伶俐的鸟&quot;)[&lt;br&gt;回答(color:yellow)[正确]！(hide:?Q5a2)(hide:?Q5a3)(set:_ture to  it + 1)(rerun:?shu)]]
 |Q5a2&gt;[(link:&quot;&lt;br&gt;是伟大的鸟房主理鸦&quot;)[&lt;br&gt;回答(color:yellow)[正确]！(hide:?Q5a1)(hide:?Q5a3)(set:_ture to  it + 1)(rerun:?shu)]]
 |Q5a3&gt;[(link:&quot;&lt;br&gt;是勤劳善良的仁慈鸦鸦呀！&quot;)[&lt;br&gt;回答(color:yellow)[正确]！(hide:?Q5a1)(hide:?Q5a2)(set:_ture to  it + 1)(rerun:?shu)]]}
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="39" name="浴室马桶1" tags="" position="900,400" size="100,100">(text-colour:#84b5f4)+(text-size:0.5)
+[(link-rerun:&quot;马桶&quot;)
+	[|toilet1&gt;[(float-box:&quot;=x=&quot;,&quot;=y=====&quot;)+(css:&quot;width:70vw;
+             max-width:20em;
+             height:30vh;
+             background-color:#EAEAEA;
+         color:black;
+         border-radius:5px;
+         border: 1px solid #333;
+         padding:0.5em;
+         line-height: 1.25em;
+         font-size:1.5em;
+         top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+            z-index: 1000;&quot;)
+			[热情的马桶说：“我会带你去个热闹的地方！”&lt;br&gt;
+            (align:&quot;=&gt;&lt;=&quot;)
+				[(color:#84b5f4)[(link:&quot;同意&quot;)[(set:$toilet to it + 1)(goto:&quot;马桶-舞会&quot;)]]
+
+                (color:red)[(link:&quot;拒绝&quot;)[(hide:?toilet1)]]
+				]
+			]&lt;!--box样式end--&gt;
+		]&lt;!--toilet区域end--&gt;
+	]
+]</tw-passagedata><tw-passagedata pid="40" name="浴室马桶2" tags="" position="900,500" size="100,100">(text-colour:#84b5f4)+(text-size:0.5)
+[(link-rerun:&quot;马桶&quot;)
+	[|toilet2&gt;[(float-box:&quot;=x=&quot;,&quot;=y=====&quot;)+(css:&quot;width:70vw;
+             max-width:20em;
+             height:30vh;
+             background-color:#EAEAEA;color:black;border-radius:5px;border: 1px solid #333;padding:0.5em;line-height: 1.25em;font-size:1.5em;
+    top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+            z-index: 1000;&quot;)
+			[迷糊的马桶说：“什么？我也不知道我会带你去哪里……”&lt;br&gt;
+            (align:&quot;=&gt;&lt;=&quot;)
+				[(color:#84b5f4)[(link:&quot;同意&quot;)[(set:$toilet to it + 1)(display: &quot;随机跳转&quot;)]]
+                
+                (color:red)[(link:&quot;拒绝&quot;)[(hide:?toilet2)]]
+				]
+			]&lt;!--box样式end--&gt;
+		]&lt;!--toilet区域end--&gt;
+	]
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
